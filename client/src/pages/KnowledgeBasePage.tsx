@@ -22,17 +22,17 @@ function KnowledgeBasePage() {
   const [content, setContent] = useState("");
   const [error, setError] = useState("");
 
- const fetchArticles = useCallback(async () => {
-  try {
-    const response = await api.get("/api/knowledge", {
-      params: { search },
-    });
+  const fetchArticles = useCallback(async () => {
+    try {
+      const response = await api.get("/api/knowledge", {
+        params: { search },
+      });
 
-    setArticles(Array.isArray(response.data) ? response.data : []);
-  } catch {
-    setError("Failed to load knowledge articles.");
-  }
-}, [search]);
+      setArticles(Array.isArray(response.data) ? response.data : []);
+    } catch {
+      setError("Failed to load knowledge articles.");
+    }
+  }, [search]);
 
   const createArticle = async () => {
     try {
@@ -81,9 +81,9 @@ function KnowledgeBasePage() {
     }
   };
 
-useEffect(() => {
-  fetchArticles();
-}, [fetchArticles]);
+  useEffect(() => {
+    fetchArticles();
+  }, [fetchArticles]);
 
   return (
     <div>
