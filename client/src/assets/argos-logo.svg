@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="shieldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6"></stop>
+      <stop offset="100%" stop-color="#7c3aed"></stop>
+    </linearGradient>
+  </defs>
+
+  <path d="M60 10L100 28V55C100 83 82 104 60 114C38 104 20 83 20 55V28L60 10Z" fill="url(#shieldGradient)"></path>
+
+  <path d="M60 24L85 35V55C85 72 75 87 60 96C45 87 35 72 35 55V35L60 24Z" fill="#111827"></path>
+
+  <path d="M60 38L76 82H67L64 73H56L53 82H44L60 38ZM58 65H62L60 58L58 65Z" fill="white"></path>
+</svg>
