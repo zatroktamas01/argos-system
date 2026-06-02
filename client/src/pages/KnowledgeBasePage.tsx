@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import api from "../api/api";
 import Badge from "../components/Badge";
 import EmptyState from "../components/EmptyState";
@@ -22,17 +22,17 @@ function KnowledgeBasePage() {
   const [content, setContent] = useState("");
   const [error, setError] = useState("");
 
-  const fetchArticles = async () => {
-    try {
-      const response = await api.get("/api/knowledge", {
-        params: { search },
-      });
+ const fetchArticles = useCallback(async () => {
+  try {
+    const response = await api.get("/api/knowledge", {
+      params: { search },
+    });
 
-      setArticles(Array.isArray(response.data) ? response.data : []);
-    } catch {
-      setError("Failed to load knowledge articles.");
-    }
-  };
+    setArticles(Array.isArray(response.data) ? response.data : []);
+  } catch {
+    setError("Failed to load knowledge articles.");
+  }
+}, [search]);
 
   const createArticle = async () => {
     try {
@@ -81,9 +81,9 @@ function KnowledgeBasePage() {
     }
   };
 
-  useEffect(() => {
-    fetchArticles();
-  }, []);
+useEffect(() => {
+  fetchArticles();
+}, [fetchArticles]);
 
   return (
     <div>
