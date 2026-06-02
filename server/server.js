@@ -1863,12 +1863,11 @@ app.post(
   }
 );
 
-if (process.env.NODE_ENV !== "production") {
-  const PORT = process.env.PORT || 5000;
-  server.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-    console.log("Socket.IO realtime server active");
-  });
-}
+const PORT = process.env.PORT || 5000;
+
+server.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server running on port ${PORT}`);
+  console.log("Socket.IO realtime server active");
+});
 
 module.exports = app;
