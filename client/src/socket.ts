@@ -5,8 +5,9 @@ const user = JSON.parse(
 );
 
 const API_URL =
-  process.env.REACT_APP_API_URL ||
-  "http://localhost:5000";
+  window.location.hostname === "localhost"
+    ? "http://localhost:5000"
+    : "https://argos-backend-r1nu.onrender.com";
 
 export const socket = io(API_URL, {
   auth: {

@@ -1,17 +1,16 @@
 import axios from "axios";
 
 const API_URL =
-  process.env.REACT_APP_API_URL ||
-  "http://localhost:5000";
+  window.location.hostname === "localhost"
+    ? "http://localhost:5000"
+    : "https://argos-backend-r1nu.onrender.com";
 
 const api = axios.create({
   baseURL: API_URL,
 });
 
 api.interceptors.request.use((config) => {
-  const token = localStorage.getItem(
-    "argos_token"
-  );
+  const token = localStorage.getItem("argos_token");
 
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
