@@ -12,12 +12,18 @@ Argos System is a modern AI-powered IT Service Management (ITSM) platform design
 * OpenAI-powered troubleshooting recommendations
 * Real-time ticket management with Socket.IO
 * SLA tracking and monitoring
-* Redis + BullMQ background job processing
+* Redis Cloud caching and background job processing
 * JWT Authentication and Role-Based Access Control (RBAC)
 * Knowledge Base for internal documentation
 * Audit logging and compliance tracking
 * PDF and CSV report generation
 * Enterprise dashboard analytics
+* MongoDB Atlas cloud database
+* Render backend deployment
+* Vercel frontend deployment
+* Uptime monitoring and health checks
+* Cypress End-to-End Testing
+* Automated UI Testing
 
 ---
 
@@ -41,7 +47,6 @@ Argos System is a modern AI-powered IT Service Management (ITSM) platform design
 * Root cause analysis
 * Troubleshooting recommendations
 * Automated priority detection
-* IT keyword validation
 * Intelligent incident summaries
 
 ### Dashboard Analytics
@@ -51,7 +56,7 @@ Argos System is a modern AI-powered IT Service Management (ITSM) platform design
 * In Progress statistics
 * Resolved statistics
 * High Priority monitoring
-* Realtime dashboard refresh
+* Real-time dashboard refresh
 * Charts and visual analytics
 
 ### Notifications
@@ -59,7 +64,7 @@ Argos System is a modern AI-powered IT Service Management (ITSM) platform design
 * Critical incident alerts
 * SLA overdue notifications
 * Unassigned ticket warnings
-* Realtime notification updates
+* Real-time notification updates
 
 ### Audit Logging
 
@@ -77,27 +82,18 @@ Argos System is a modern AI-powered IT Service Management (ITSM) platform design
 * SLA statistics
 * Priority analysis
 
-### Realtime System
-
-* Socket.IO integration
-* Live ticket updates
-* Realtime dashboard updates
-* Live notifications
-* Online agent tracking
-
 ### Knowledge Base
 
 * Internal troubleshooting articles
-* Documentation system
-* Searchable IT support knowledge repository
+* Searchable IT documentation
+* Knowledge repository management
 
 ### Security
 
 * JWT Authentication
 * Role-Based Access Control (RBAC)
-* Admin permissions
-* Agent permissions
 * Protected API routes
+* Admin & Agent permissions
 
 ---
 
@@ -124,37 +120,35 @@ Argos System is a modern AI-powered IT Service Management (ITSM) platform design
 * TypeScript
 * React Router
 * Tailwind CSS
-* Recharts
 * Axios
+* Recharts
 * Socket.IO Client
-* Lucide React Icons
+* Lucide React
+* Cypress
 
 ### Backend
 
 * Node.js
 * Express.js
-* MongoDB
+* MongoDB Atlas
 * Mongoose
 * Socket.IO
-* Redis
+* Redis Cloud
 * BullMQ
 * JWT Authentication
 * bcryptjs
-* Multer
+* OpenAI API
 * PDFKit
 * json2csv
-* OpenAI API
+* Multer
 
-### Database
+### Cloud Infrastructure
 
-* MongoDB
-
-### Realtime Infrastructure
-
-* Socket.IO
-* Redis
-* BullMQ Workers
-* Background Job Processing
+* MongoDB Atlas
+* Redis Cloud
+* Render
+* Vercel
+* UptimeRobot
 
 ---
 
@@ -167,11 +161,13 @@ React
  ├─ Dashboard
  ├─ Tickets
  ├─ Ticket Details
+ ├─ Create Ticket
  ├─ AI Assistant
- ├─ Notifications
- ├─ Audit Logs
  ├─ Knowledge Base
+ ├─ Notifications
+ ├─ Audit Log
  ├─ Test Center
+ ├─ Settings
  └─ Admin Panel
 ```
 
@@ -192,25 +188,70 @@ Express API
 
 ---
 
-## Demo Login
+## Deployment
 
-### Administrator
+### Production Infrastructure
 
-Email: [admin@argos.com](mailto:admin@argos.com)
+Frontend
 
-Password: admin123
+* Vercel
 
-Role: Admin
+Backend
 
-Permissions:
+* Render
 
-* Full system access
-* User management
-* Role management
-* Ticket deletion
-* Reporting
-* Audit logs
-* Knowledge Base management
+Database
+
+* MongoDB Atlas
+
+Cache & Queue
+
+* Redis Cloud
+
+Monitoring
+
+* UptimeRobot
+* Health Check Endpoint
+
+CI/CD
+
+* GitHub
+* Automatic Deployments
+* Git-Based Deployment Pipeline
+
+---
+
+## Testing
+
+Argos System includes automated end-to-end testing using Cypress.
+
+### Current Test Coverage
+
+* User Login
+* Ticket Creation
+* Knowledge Base Search
+* User Logout
+
+### Testing Framework
+
+* Cypress E2E Testing
+
+```txt
+Cypress
+ ├─ login.cy.js
+ ├─ create-ticket.cy.js
+ ├─ knowledge-base.cy.js
+ └─ logout.cy.js
+```
+
+---
+
+## Monitoring
+
+* Health Check Endpoint (`/api/health`)
+* UptimeRobot Monitoring
+* Automatic Availability Checks
+* Production Uptime Tracking
 
 ---
 
@@ -245,42 +286,69 @@ MONGODB_URI=your_mongodb_connection
 
 JWT_SECRET=your_jwt_secret
 
-OPENAI_API_KEY=your_openai_key
+OPENAI_API_KEY=your_openai_api_key
 
-REDIS_URL=redis://localhost:6379
+REDIS_URL=your_redis_connection
+```
+
+### Client (.env)
+
+```env
+VITE_API_URL=https://your-backend-url
+```
+
+---
+
+## Demo Login
+
+### Administrator
+
+Email
+
+```txt
+admin@argos.com
+```
+
+Password
+
+```txt
+admin123
+```
+
+Role
+
+```txt
+Admin
 ```
 
 ---
 
 ## Screenshots
 
-A dedicated `/screenshots` directory is included in the repository containing screenshots of all major system modules and workflows.
-
-Included screenshots:
+The repository includes screenshots demonstrating:
 
 * Login Page
-* Dashboard Analytics
+* Dashboard
 * Ticket Management
-* Ticket Details & SLA Tracking
+* Ticket Details
 * AI Assistant
 * Knowledge Base
-* Notifications Center
-* Audit Log
+* Notifications
+* Audit Logs
 * Admin Panel
 * Test Center
-
-Browse the `/screenshots` folder to view the complete application interface.
 
 ---
 
 ## Future Improvements
 
 * File Attachment System
-* Email Notification Templates
+* Email Templates
+* Mobile UI Enhancements
 * Asset Management Module
-* Advanced Queue Monitoring
-* Multi-Agent Workload Balancing
-* Multi-Tenant Architecture
+* Advanced Dashboard Widgets
+* User Profile Management
+* Dark Mode
 * Microsoft Entra ID Integration
 * Single Sign-On (SSO)
 
@@ -288,10 +356,10 @@ Browse the `/screenshots` folder to view the complete application interface.
 
 ## Author
 
-Tamás
+**Tamás Zátrok**
 
 Argos System
 
-Enterprise AI-Powered IT Service Management Platform
+AI-Powered IT Service Management Platform
 
-Built with React, TypeScript, Node.js, Express.js, MongoDB, Redis, BullMQ, Socket.IO and OpenAI.
+Built with React, TypeScript, Node.js, Express.js, MongoDB Atlas, Redis Cloud, Socket.IO, BullMQ, OpenAI and Cypress.

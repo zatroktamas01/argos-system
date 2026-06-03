@@ -1,0 +1,25 @@
+1. Cypress telepítése
+npm install --save-dev cypress
+
+2. Cypress megnyitása
+npx cypress open
+
+3. Cypress futtatása terminálból
+npx cypress run
+
+4. ESLint plugin telepítése Cypresshez
+npm install --save-dev eslint-plugin-cypress
+
+5. Cypress telepítés ellenőrzése
+npm ls cypress
+
+6. ESLint plugin ellenőrzése
+npm ls eslint-plugin-cypress
+
+Megjegyzés:
+Az alábbi két parancs ugyanaz:
+
+npm install cypress --save-dev
+npm install --save-dev cypress
+
+Elég az egyiket használni.

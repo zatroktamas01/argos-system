@@ -6,13 +6,11 @@ import api from "../api/api";
 function LoginPage() {
   const navigate = useNavigate();
 
-  const [mode, setMode] = useState<"login" | "register">(
-    "login"
-  );
+  const [mode, setMode] = useState<"login" | "register">("login");
 
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("tamas@test.com");
-  const [password, setPassword] = useState("123456");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -23,9 +21,7 @@ function LoginPage() {
       setError("");
 
       const endpoint =
-        mode === "login"
-          ? "/api/auth/login"
-          : "/api/auth/register";
+        mode === "login" ? "/api/auth/login" : "/api/auth/register";
 
       const payload =
         mode === "login"
@@ -34,15 +30,8 @@ function LoginPage() {
 
       const response = await api.post(endpoint, payload);
 
-      localStorage.setItem(
-        "argos_token",
-        response.data.token
-      );
-
-      localStorage.setItem(
-        "argos_user",
-        JSON.stringify(response.data.user)
-      );
+      localStorage.setItem("argos_token", response.data.token);
+      localStorage.setItem("argos_user", JSON.stringify(response.data.user));
 
       navigate("/");
     } catch (error) {
@@ -68,9 +57,7 @@ function LoginPage() {
             className="mb-4 h-24 w-24 rounded-2xl"
           />
 
-          <h1 className="text-4xl font-bold tracking-tight">
-            ARGOS
-          </h1>
+          <h1 className="text-4xl font-bold tracking-tight">ARGOS</h1>
 
           <p className="text-xl font-semibold tracking-[0.35em] text-violet-400">
             SYSTEM
@@ -83,21 +70,23 @@ function LoginPage() {
 
         <div className="mt-8 grid grid-cols-2 rounded-lg bg-slate-950 p-1">
           <button
+            type="button"
             onClick={() => setMode("login")}
-            className={`rounded-md py-3 text-sm font-medium ${mode === "login"
-                ? "bg-violet-600 text-white"
-                : "text-slate-400"
-              }`}
+            className={`rounded-md py-3 text-sm font-medium ${
+              mode === "login" ? "bg-violet-600 text-white" : "text-slate-400"
+            }`}
           >
             Log In
           </button>
 
           <button
+            type="button"
             onClick={() => setMode("register")}
-            className={`rounded-md py-3 text-sm font-medium ${mode === "register"
+            className={`rounded-md py-3 text-sm font-medium ${
+              mode === "register"
                 ? "bg-violet-600 text-white"
                 : "text-slate-400"
-              }`}
+            }`}
           >
             Register
           </button>
@@ -111,10 +100,10 @@ function LoginPage() {
               </label>
 
               <input
+                data-cy="name"
+                autoComplete="off"
                 value={name}
-                onChange={(event) =>
-                  setName(event.target.value)
-                }
+                onChange={(event) => setName(event.target.value)}
                 className="w-full rounded-lg border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none"
               />
             </div>
@@ -126,10 +115,11 @@ function LoginPage() {
             </label>
 
             <input
+              data-cy="email"
+              type="email"
+              autoComplete="off"
               value={email}
-              onChange={(event) =>
-                setEmail(event.target.value)
-              }
+              onChange={(event) => setEmail(event.target.value)}
               className="w-full rounded-lg border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none"
             />
           </div>
@@ -140,11 +130,11 @@ function LoginPage() {
             </label>
 
             <input
+              data-cy="password"
               type="password"
+              autoComplete="new-password"
               value={password}
-              onChange={(event) =>
-                setPassword(event.target.value)
-              }
+              onChange={(event) => setPassword(event.target.value)}
               className="w-full rounded-lg border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none"
             />
           </div>
@@ -167,6 +157,7 @@ function LoginPage() {
           )}
 
           <button
+            type="button"
             onClick={handleAuth}
             disabled={loading}
             className="w-full rounded-lg bg-violet-600 px-6 py-3 font-medium hover:bg-violet-500 disabled:opacity-50"
@@ -174,8 +165,8 @@ function LoginPage() {
             {loading
               ? "Please wait..."
               : mode === "login"
-                ? "Log In"
-                : "Create Account"}
+              ? "Log In"
+              : "Create Account"}
           </button>
         </div>
       </div>

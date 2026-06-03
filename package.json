@@ -1,5 +1,7 @@
 {
   "devDependencies": {
+    "cypress": "^15.16.0",
+    "eslint-plugin-cypress": "^6.4.1",
     "gh-pages": "^6.3.0"
   },
   "dependencies": {
