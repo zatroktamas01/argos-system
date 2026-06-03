@@ -1,365 +1,300 @@
-# Argos System
+## How to Use the Application
 
-Enterprise AI-Powered IT Service Management Platform
+### Step 1 - Login
 
-Argos System is a modern AI-powered IT Service Management (ITSM) platform designed to help organizations manage incidents, support tickets, notifications, audits, reporting, and AI-assisted troubleshooting through a centralized dashboard.
-
----
-
-## Highlights
-
-* AI-powered IT incident analysis
-* OpenAI-powered troubleshooting recommendations
-* Real-time ticket management with Socket.IO
-* SLA tracking and monitoring
-* Redis Cloud caching and background job processing
-* JWT Authentication and Role-Based Access Control (RBAC)
-* Knowledge Base for internal documentation
-* Audit logging and compliance tracking
-* PDF and CSV report generation
-* Enterprise dashboard analytics
-* MongoDB Atlas cloud database
-* Render backend deployment
-* Vercel frontend deployment
-* Uptime monitoring and health checks
-* Cypress End-to-End Testing
-* Automated UI Testing
-
----
-
-## Features
-
-### Ticket Management
-
-* Create support tickets
-* Edit and update incidents
-* Assign tickets to agents
-* Priority management
-* Status tracking
-* SLA monitoring
-* Ticket comments
-* Activity history
-
-### AI Assistant
-
-* OpenAI integration
-* AI-powered incident classification
-* Root cause analysis
-* Troubleshooting recommendations
-* Automated priority detection
-* Intelligent incident summaries
-
-### Dashboard Analytics
-
-* Total tickets overview
-* Open tickets statistics
-* In Progress statistics
-* Resolved statistics
-* High Priority monitoring
-* Real-time dashboard refresh
-* Charts and visual analytics
-
-### Notifications
-
-* Critical incident alerts
-* SLA overdue notifications
-* Unassigned ticket warnings
-* Real-time notification updates
-
-### Audit Logging
-
-* Ticket creation logs
-* Assignment logs
-* Status change logs
-* Comment activity logs
-* Administrative actions
-
-### Reporting
-
-* Enterprise PDF reports
-* CSV exports
-* Incident summaries
-* SLA statistics
-* Priority analysis
-
-### Knowledge Base
-
-* Internal troubleshooting articles
-* Searchable IT documentation
-* Knowledge repository management
-
-### Security
-
-* JWT Authentication
-* Role-Based Access Control (RBAC)
-* Protected API routes
-* Admin & Agent permissions
-
----
-
-## Enterprise Features
-
-* SLA Tracking
-* Audit Logging
-* Knowledge Base
-* Real-time Notifications
-* Ticket Assignment
-* PDF & CSV Reporting
-* Background Job Processing
-* AI Incident Classification
-* AI Incident Summaries
-* User Administration
-
----
-
-## Technology Stack
-
-### Frontend
-
-* React
-* TypeScript
-* React Router
-* Tailwind CSS
-* Axios
-* Recharts
-* Socket.IO Client
-* Lucide React
-* Cypress
-
-### Backend
-
-* Node.js
-* Express.js
-* MongoDB Atlas
-* Mongoose
-* Socket.IO
-* Redis Cloud
-* BullMQ
-* JWT Authentication
-* bcryptjs
-* OpenAI API
-* PDFKit
-* json2csv
-* Multer
-
-### Cloud Infrastructure
-
-* MongoDB Atlas
-* Redis Cloud
-* Render
-* Vercel
-* UptimeRobot
-
----
-
-## Architecture
-
-### Frontend
+Open the application:
 
 ```txt
-React
- ├─ Dashboard
- ├─ Tickets
- ├─ Ticket Details
- ├─ Create Ticket
- ├─ AI Assistant
- ├─ Knowledge Base
- ├─ Notifications
- ├─ Audit Log
- ├─ Test Center
- ├─ Settings
- └─ Admin Panel
+https://argos-system-alpha.vercel.app
 ```
 
-### Backend
+Use the administrator account:
 
 ```txt
-Express API
- ├─ Authentication
- ├─ Ticket Management
- ├─ AI Services
- ├─ Reporting
- ├─ Notifications
- ├─ Audit Logs
- ├─ Socket.IO
- ├─ Redis Workers
- └─ OpenAI Integration
+Email: admin@argos.com
+Password: admin123
 ```
 
----
-
-## Deployment
-
-### Production Infrastructure
-
-Frontend
-
-* Vercel
-
-Backend
-
-* Render
-
-Database
-
-* MongoDB Atlas
-
-Cache & Queue
-
-* Redis Cloud
-
-Monitoring
-
-* UptimeRobot
-* Health Check Endpoint
-
-CI/CD
-
-* GitHub
-* Automatic Deployments
-* Git-Based Deployment Pipeline
+After successful authentication, the system redirects the user to the main dashboard.
 
 ---
 
-## Testing
+### Step 2 - Dashboard Overview
 
-Argos System includes automated end-to-end testing using Cypress.
+The Dashboard provides a real-time overview of the IT support environment.
 
-### Current Test Coverage
+You can monitor:
 
-* User Login
+* Total Tickets
+* Open Tickets
+* In Progress Tickets
+* Resolved Tickets
+* High Priority Incidents
+* Real-Time Ticket Statistics
+* Interactive Charts
+
+All statistics are generated from live ticket data stored in MongoDB Atlas.
+
+---
+
+### Step 3 - Create a Manual Ticket
+
+Navigate to:
+
+```txt
+Create Ticket
+```
+
+Example:
+
+```txt
+Title:
+Users cannot access corporate VPN
+
+Category:
+Network
+
+Priority:
+High
+
+Likely Cause:
+VPN gateway failure
+```
+
+Click:
+
+```txt
+Create Ticket
+```
+
+The ticket is immediately stored in MongoDB Atlas and becomes visible throughout the system.
+
+---
+
+### Step 4 - Analyze an Incident with AI
+
+Navigate to:
+
+```txt
+AI Assistant
+```
+
+Example request:
+
+```txt
+Several employees cannot connect to the VPN after a firewall update.
+Authentication succeeds but connections timeout.
+```
+
+Click:
+
+```txt
+Analyze Issue
+```
+
+The AI Assistant automatically generates:
+
+* Ticket Title
+* Category
+* Priority
+* Likely Cause
+* Troubleshooting Steps
+* Manual Test Cases
+* Recommended Resolution
+
+The AI is powered by OpenAI and automatically classifies incidents.
+
+---
+
+### Step 5 - Create a Ticket from AI Analysis
+
+After analysis is completed, click:
+
+```txt
+Create Ticket
+```
+
+The generated incident information is automatically converted into a support ticket.
+
+This demonstrates the AI-assisted ticket creation workflow.
+
+---
+
+### Step 6 - Manage Tickets
+
+Navigate to:
+
+```txt
+Tickets
+```
+
+Open any ticket and perform actions such as:
+
+* Change Status
+* Assign Agents
+* Add Comments
+* Upload Attachments
+* Review Activity History
+* Monitor SLA Status
+
+All changes are logged and tracked.
+
+---
+
+### Step 7 - Use the Knowledge Base
+
+Navigate to:
+
+```txt
+Knowledge Base
+```
+
+Search for keywords:
+
+```txt
+VPN
+Outlook
+DNS
+Windows
+Active Directory
+Printer
+```
+
+The system returns matching troubleshooting articles.
+
+Administrators can create and manage knowledge articles.
+
+---
+
+### Step 8 - Monitor Notifications
+
+Navigate to:
+
+```txt
+Notifications
+```
+
+The notification system displays:
+
+* Critical Incidents
+* SLA Violations
+* Unassigned Tickets
+* Operational Warnings
+
+Notifications are updated in real time using Socket.IO.
+
+---
+
+### Step 9 - Review Audit Logs
+
+Navigate to:
+
+```txt
+Audit Logs
+```
+
+Audit logs track:
+
 * Ticket Creation
-* Knowledge Base Search
-* User Logout
+* Status Changes
+* Ticket Assignments
+* Comment Activity
+* Administrative Actions
 
-### Testing Framework
+This provides traceability for support operations.
 
-* Cypress E2E Testing
+---
+
+### Step 10 - Use the Admin Panel
+
+Navigate to:
 
 ```txt
-Cypress
- ├─ login.cy.js
- ├─ create-ticket.cy.js
- ├─ knowledge-base.cy.js
- └─ logout.cy.js
+Admin Panel
 ```
+
+Administrative capabilities include:
+
+* User Management
+* Role Management
+* User Deletion
+* System Administration
+* Report Access
+
+Only administrators can access these functions.
 
 ---
 
-## Monitoring
+### Step 11 - Export Reports
 
-* Health Check Endpoint (`/api/health`)
-* UptimeRobot Monitoring
-* Automatic Availability Checks
-* Production Uptime Tracking
+Administrators can generate:
+
+* PDF Reports
+* CSV Reports
+
+Reports contain:
+
+* Ticket Statistics
+* Priority Distribution
+* Status Information
+* SLA Data
+* Assignment Information
 
 ---
 
-## Installation
+### Step 12 - Run the Test Center
 
-### Backend
+Navigate to:
 
-```bash
-cd server
-npm install
-npm start
+```txt
+Test Center
 ```
 
-### Frontend
+The Test Center validates:
+
+* MongoDB Connectivity
+* JWT Authentication
+* Ticket Workflow
+* Statistics Logic
+* OpenAI Integration
+
+This provides a quick health check of the platform.
+
+---
+
+### Step 13 - Automated Testing
+
+The project includes Cypress End-to-End tests.
+
+Available test suites:
+
+```txt
+login.cy.js
+create-ticket.cy.js
+knowledge-base.cy.js
+logout.cy.js
+```
+
+Run locally:
 
 ```bash
 cd client
-npm install
-npm start
+npx cypress open
 ```
 
 ---
 
-## Environment Variables
+### Step 14 - Monitoring
 
-### Server (.env)
-
-```env
-PORT=5000
-
-MONGODB_URI=your_mongodb_connection
-
-JWT_SECRET=your_jwt_secret
-
-OPENAI_API_KEY=your_openai_api_key
-
-REDIS_URL=your_redis_connection
-```
-
-### Client (.env)
-
-```env
-VITE_API_URL=https://your-backend-url
-```
-
----
-
-## Demo Login
-
-### Administrator
-
-Email
+Backend health monitoring is available through:
 
 ```txt
-admin@argos.com
+https://argos-backend-r1nu.onrender.com/api/health
 ```
 
-Password
+Infrastructure monitoring is provided by:
 
-```txt
-admin123
-```
+* UptimeRobot
+* Render Health Checks
 
-Role
-
-```txt
-Admin
-```
-
----
-
-## Screenshots
-
-The repository includes screenshots demonstrating:
-
-* Login Page
-* Dashboard
-* Ticket Management
-* Ticket Details
-* AI Assistant
-* Knowledge Base
-* Notifications
-* Audit Logs
-* Admin Panel
-* Test Center
-
----
-
-## Future Improvements
-
-* File Attachment System
-* Email Templates
-* Mobile UI Enhancements
-* Asset Management Module
-* Advanced Dashboard Widgets
-* User Profile Management
-* Dark Mode
-* Microsoft Entra ID Integration
-* Single Sign-On (SSO)
-
----
-
-## Author
-
-**Tamás Zátrok**
-
-Argos System
-
-AI-Powered IT Service Management Platform
-
-Built with React, TypeScript, Node.js, Express.js, MongoDB Atlas, Redis Cloud, Socket.IO, BullMQ, OpenAI and Cypress.
+This ensures service availability and uptime tracking.
