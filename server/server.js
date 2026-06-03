@@ -80,6 +80,13 @@ const app = express();
 
 app.use(helmet());
 
+app.get("/api/health", (req, res) => {
+  res.json({
+    status: "ok",
+    message: "Argos System API running",
+  });
+});
+
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
@@ -95,10 +102,12 @@ const limiter = rateLimit({
 app.use(limiter);
 
 const server = http.createServer(app);
-
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: [
+      "http://localhost:3000",
+      "https://argos-system-alpha.vercel.app",
+    ],
     methods: ["GET", "POST", "PATCH", "DELETE"],
   },
 });
@@ -185,14 +194,6 @@ const createToken = (user) => {
   );
 };
 
-
-
-app.get("/api/health", (req, res) => {
-  res.json({
-    status: "ok",
-    message: "Argos System API running",
-  });
-});
 
 app.post(
   "/api/auth/register",
