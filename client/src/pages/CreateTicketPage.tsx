@@ -24,15 +24,12 @@ function CreateTicketPage() {
     try {
       setLoading(true);
 
-      const response = await api.post(
-        "http://localhost:5000/api/tickets",
-        {
-          title,
-          category,
-          priority,
-          likelyCause,
-        }
-      );
+      const response = await api.post("/api/tickets", {
+        title,
+        category,
+        priority,
+        likelyCause,
+      });
 
       navigate(
         `/tickets/${response.data.id}`
